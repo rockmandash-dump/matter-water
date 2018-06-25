@@ -1,7 +1,8 @@
 import times from 'lodash/times';
 
 export default () => {
-  const radius = 10;
+  const radius = 5;
+  const sides = 3;
   let ballData = [];
 
   times(Math.floor(window.innerWidth / radius), xIndex => {
@@ -9,10 +10,11 @@ export default () => {
       ballData.push({
         x: 5 + radius * 2 * xIndex,
         y: 5 + radius * 2 * yIndex,
-        radius: radius
+        sides,
+        radius
       });
     });
   });
 
-  return ballData;
+  return ballData.slice(0, 500);
 };
